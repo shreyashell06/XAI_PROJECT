@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+activations/
+data/CUB/
+data/CUB_200_2011*
+results/*/layers/
+results/*/vanilla.pt
+*.tmp
+.ipynb_checkpoints/
+*.pt
+*.pth
+*.zip
+results*/*/layers/
