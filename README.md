@@ -49,6 +49,28 @@ Perturbations (Sec. 6.1): **WP1** swaps 5% or 10% of the concept words for synon
 N(0, 0.001) noise to the CLIP text embeddings. **IP** adds N(0, 0.001) noise to the normalised input pixels.
 The combinations of these give 7 settings. Metrics: `TCPC = ||c1−c2||/||c1||` and `TOPC = ||y1−y2||/||y1||`.
 
+## End-to-end replication workflow
+
+The pieces above fit together as a single resumable pipeline (`fvlc/pipeline.py`):
+
+```mermaid
+flowchart TD
+    A[Dataset] --> B[Backbone / feature extraction]
+    B --> C[Label-free CBM]
+    C --> D[Perturbation]
+    D --> E[FVLC training]
+    E --> F[TCPC/TOPC evaluation]
+    F --> G[Comparison with paper results]
+```
+
+- **Dataset** — load CIFAR-10, CIFAR-100 or CUB-200-2011 (`fvlc/data.py`).
+- **Backbone / feature extraction** — run the CLIP / ResNet backbones and cache the backbone, CLIP image and CLIP text embeddings (`fvlc/features.py`).
+- **Label-free CBM** — learn the concept bottleneck layer with the cos³ projection loss and fit the sparse final layer with GLM-SAGA (`fvlc/cbm.py`).
+- **Perturbation** — apply one of the 7 WP1/WP2/IP settings to build the perturbed base (`fvlc/concepts.py`, `fvlc/data.py`).
+- **FVLC training** — relearn only the concept layer through the Algorithm 1 min–max objective (`fvlc/fvlc.py`).
+- **TCPC/TOPC evaluation** — measure accuracy and the TCPC/TOPC stability metrics (`fvlc/metrics.py`).
+- **Comparison with paper results** — collate ours-vs-paper into `results/tables.md` (`make_tables.py`, `fvlc/paper_results.py`).
+
 ## Repository layout
 
 ```
@@ -110,6 +132,17 @@ Useful flags: `--perturbations WP2 IP` (subset), `--limit_train 2000 --fvlc_epoc
 `--force` (recompute), and any hyper-parameter such as `--fvlc_lr`, `--k1`, `--pgd_mode per_sample` or
 `--rho_space concept`. Cached features go to `activations/` (set `FVLC_ACT_DIR` to put them on Google Drive).
 
+### Reproducibility notes
+
+The details needed to reproduce a run, collected in one place:
+
+- **Python:** ≥ 3.10.
+- **GPU:** a CUDA GPU; a Colab/Kaggle T4 is enough.
+- **Seed:** 42 everywhere (`--seed` to change it); the perturbed baseline uses seed 43 (`base_seed_offset=1`).
+- **Smoke test:** `python run_experiments.py --dataset cifar10 --limit_train 2000 --fvlc_epochs 1`, plus `python tests/test_core.py` for a ~30 s CPU check on synthetic data.
+- **Cached features:** written to `activations/` (set `FVLC_ACT_DIR` to relocate them, e.g. onto Google Drive).
+- **Result files:** each dataset writes `results/<ds>/results.json`; `make_tables.py` writes `results/tables.md` and `results/fig_stability.png`.
+
 ## Ambiguities and our choices
 
 The paper leaves several details unspecified. Every choice is a config flag, so each one can be ablated.
@@ -167,9 +200,24 @@ Caveat for `paired`: for the word perturbations (WP1/WP2), FVLC's TCPC is exactl
 uses the concept text; it only sees backbone features and the vanilla model's outputs. So the ~90% gain for
 WP1/WP2 holds by construction, and the informative number is IP.
 
+## What this repository demonstrates
+
+In one place, this replication:
+
+- reproduces **Tables 1–3 and Figure 3** of the paper;
+- covers **CIFAR-10, CIFAR-100 and CUB-200-2011**;
+- shows that FVLC **preserves accuracy** relative to the base Label-free CBM (Table 1);
+- shows the **stability improvement** in TCPC / TOPC under the 7 perturbations (Table 2);
+- includes the **ablation of L2 / L3 / L4**, confirming every regulariser helps (Table 3);
+- is an **independent re-implementation**, written because the official FVLC code was incomplete and non-runnable (see "Relation to the official code" above).
+
 ## Results
 
 Final results (Kaggle T4, seed 42) and the one-page comparison with the paper are in `REPLICATION_SUMMARY.md`.
+
+### How to read the results
+
+**Accuracy** (Table 1) shows that FVLC keeps the base model's predictive performance. **TCPC** measures how much the concept vector changes under a perturbation and **TOPC** how much the output prediction changes — lower means more stable (Table 2). The **ablation** rows (Table 3) isolate the contribution of each regulariser L2 / L3 / L4. In short: FVLC aims for the same accuracy as the base with markedly lower TCPC/TOPC.
 
 | Folder | Contents |
 |---|---|
