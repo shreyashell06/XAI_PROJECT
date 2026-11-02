@@ -1,0 +1,15 @@
+# Python >= 3.10. Tested target: Google Colab / Kaggle (CUDA GPU).
+torch>=2.0
+torchvision>=0.15
+numpy
+tqdm
+matplotlib
+pillow
+ftfy
+regex
+nltk>=3.8               # WP1 synonyms (WordNet)
+pytorchcv>=0.0.67       # ResNet-18 trained on CUB (imgclsmob); tested with the latest release
+git+https://github.com/openai/CLIP.git
+# optional: only for generate_concepts.py / LLM-based WP1
+# openai>=1.0
+# sentence-transformers>=2.2

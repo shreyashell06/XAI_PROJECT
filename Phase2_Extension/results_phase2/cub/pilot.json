@@ -1,0 +1,166 @@
+{
+  "dataset": "cub",
+  "seed": 42,
+  "radii": [
+    0.01,
+    0.05,
+    0.1
+  ],
+  "k": 10,
+  "models": {
+    "constant": {
+      "acc": 0.005181347019970417,
+      "decision": {
+        "nonzero_frac": 0.20000000298023224,
+        "positive_frac": 0.0,
+        "act_vs_contrib": 0.20000000298023224
+      },
+      "worst_case": {
+        "0.01": {
+          "tcpc": 0.0,
+          "topc": 0.0,
+          "topk_overlap": 1.0,
+          "pred_agreement": 1.0
+        },
+        "0.05": {
+          "tcpc": 0.0,
+          "topc": 0.0,
+          "topk_overlap": 1.0,
+          "pred_agreement": 1.0
+        },
+        "0.1": {
+          "tcpc": 0.0,
+          "topc": 0.0,
+          "topk_overlap": 1.0,
+          "pred_agreement": 1.0
+        }
+      },
+      "locality": {
+        "all": {
+          "n_concepts": 133,
+          "relevant_drop": 0.0,
+          "relevant_abs": 0.0,
+          "irrelevant_abs": 0.0,
+          "locality": 0.0,
+          "ratio": 0.0
+        },
+        "active": {
+          "n_concepts": 0
+        }
+      },
+      "attribute_auroc": {
+        "overall": 0.5,
+        "n_concepts": 110,
+        "within_species": 0.5,
+        "n_pairs": 8999
+      }
+    },
+    "lfcbm": {
+      "acc": 0.7371329665184021,
+      "decision": {
+        "nonzero_frac": 0.5302417874336243,
+        "positive_frac": 0.5277029275894165,
+        "act_vs_contrib": 0.37326428294181824
+      },
+      "worst_case": {
+        "0.01": {
+          "tcpc": 0.03635983541607857,
+          "topc": 0.038550712168216705,
+          "topk_overlap": 0.9661484360694885,
+          "pred_agreement": 0.9445595741271973
+        },
+        "0.05": {
+          "tcpc": 0.18193425238132477,
+          "topc": 0.19286412000656128,
+          "topk_overlap": 0.8576164841651917,
+          "pred_agreement": 0.7626942992210388
+        },
+        "0.1": {
+          "tcpc": 0.3645876348018646,
+          "topc": 0.3865038752555847,
+          "topk_overlap": 0.7389118671417236,
+          "pred_agreement": 0.587737500667572
+        }
+      },
+      "locality": {
+        "all": {
+          "n_concepts": 133,
+          "relevant_drop": 0.040273308753967285,
+          "relevant_abs": 0.23278340697288513,
+          "irrelevant_abs": 0.20517286658287048,
+          "locality": 0.02761054039001465,
+          "ratio": 1.134572084749143
+        },
+        "active": {
+          "n_concepts": 133,
+          "relevant_drop": 0.09826843440532684,
+          "relevant_abs": 0.2752494812011719,
+          "irrelevant_abs": 0.2227962464094162,
+          "locality": 0.052453234791755676,
+          "ratio": 1.2354314116018195
+        }
+      },
+      "attribute_auroc": {
+        "overall": 0.690423435563362,
+        "n_concepts": 110,
+        "within_species": 0.5449664962094276,
+        "n_pairs": 8999
+      }
+    },
+    "fvlc": {
+      "acc": 0.7293609380722046,
+      "decision": {
+        "nonzero_frac": 0.5055440664291382,
+        "positive_frac": 0.4963039755821228,
+        "act_vs_contrib": 0.35020726919174194
+      },
+      "worst_case": {
+        "0.01": {
+          "tcpc": 0.020387133583426476,
+          "topc": 0.022884486243128777,
+          "topk_overlap": 0.9727633595466614,
+          "pred_agreement": 0.9335060715675354
+        },
+        "0.05": {
+          "tcpc": 0.10179910063743591,
+          "topc": 0.1142967939376831,
+          "topk_overlap": 0.8863038420677185,
+          "pred_agreement": 0.7243523597717285
+        },
+        "0.1": {
+          "tcpc": 0.20315976440906525,
+          "topc": 0.22817330062389374,
+          "topk_overlap": 0.7940760254859924,
+          "pred_agreement": 0.5231433510780334
+        }
+      },
+      "locality": {
+        "all": {
+          "n_concepts": 133,
+          "relevant_drop": 0.04030022397637367,
+          "relevant_abs": 0.30066511034965515,
+          "irrelevant_abs": 0.26777932047843933,
+          "locality": 0.03288578987121582,
+          "ratio": 1.1228092961490044
+        },
+        "active": {
+          "n_concepts": 133,
+          "relevant_drop": 0.12170039862394333,
+          "relevant_abs": 0.3223864734172821,
+          "irrelevant_abs": 0.2700605094432831,
+          "locality": 0.05232596397399902,
+          "ratio": 1.1937564439979267
+        }
+      },
+      "attribute_auroc": {
+        "overall": 0.6448700806408288,
+        "n_concepts": 110,
+        "within_species": 0.5287526802053913,
+        "n_pairs": 8999
+      }
+    }
+  },
+  "n_concepts": 208,
+  "verdict": "FVLC minus LF-CBM: locality +0.005, within-species AUROC -0.016. Share of FVLC's top-k concepts with a non-zero weight for the predicted class: 0.51. Constant explainer worst-case TCPC: 0.000, vs 0.203 for FVLC (it 'wins' on stability). **GO**: build EC-FVLC.",
+  "time_s": 815.8897891044617
+}

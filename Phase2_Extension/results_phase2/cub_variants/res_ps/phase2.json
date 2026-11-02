@@ -1,0 +1,427 @@
+{
+  "settings": {
+    "lambda1": 0.01,
+    "lambda2": 0.01,
+    "lambda3": 0.01,
+    "lambda4": 0.01,
+    "pgd_mode": "per_sample",
+    "x_pgd_radius": 0.05,
+    "fvlc_epochs": 20
+  },
+  "dataset": "cub",
+  "seed": 42,
+  "radii": [
+    0.01,
+    0.05,
+    0.1
+  ],
+  "views": [
+    "occlude",
+    "crop",
+    "cutmix",
+    "nuisance"
+  ],
+  "lambda5": [
+    0.03,
+    0.1,
+    0.3
+  ],
+  "n_concepts": 208,
+  "a_mean": 0.6302147507667542,
+  "models": {
+    "constant": {
+      "acc": 0.005181347019970417,
+      "decision": {
+        "nonzero_frac": 0.20000000298023224,
+        "positive_frac": 0.0,
+        "act_vs_contrib": 0.20000000298023224
+      },
+      "worst_case": {
+        "0.01": {
+          "tcpc": 0.0,
+          "topc": 0.0,
+          "topk_overlap": 1.0,
+          "pred_agreement": 1.0
+        },
+        "0.05": {
+          "tcpc": 0.0,
+          "topc": 0.0,
+          "topk_overlap": 1.0,
+          "pred_agreement": 1.0
+        },
+        "0.1": {
+          "tcpc": 0.0,
+          "topc": 0.0,
+          "topk_overlap": 1.0,
+          "pred_agreement": 1.0
+        }
+      },
+      "locality": {
+        "all": {
+          "n_concepts": 133,
+          "relevant_drop": 0.0,
+          "relevant_abs": 0.0,
+          "irrelevant_abs": 0.0,
+          "locality": 0.0,
+          "ratio": 0.0
+        },
+        "active": {
+          "n_concepts": 0
+        }
+      },
+      "attribute_auroc": {
+        "overall": 0.5,
+        "n_concepts": 110,
+        "within_species": 0.5,
+        "n_pairs": 8999
+      },
+      "evidence": {
+        "evidence_corr_train_clip": 0.0,
+        "evidence_corr_train_clip_occlude": 0.0,
+        "evidence_corr_train_clip_crop": 0.0,
+        "evidence_corr_train_clip_cutmix": 0.0,
+        "evidence_corr_oracle_clip": 0.0,
+        "evidence_corr_oracle_clip_occlude": 0.0,
+        "evidence_corr_oracle_clip_crop": 0.0,
+        "evidence_corr_oracle_clip_cutmix": 0.0,
+        "nuisance_tcpc": 0.0
+      }
+    },
+    "lfcbm": {
+      "acc": 0.7371329665184021,
+      "decision": {
+        "nonzero_frac": 0.5302417874336243,
+        "positive_frac": 0.5277029275894165,
+        "act_vs_contrib": 0.37326428294181824
+      },
+      "worst_case": {
+        "0.01": {
+          "tcpc": 0.03635983541607857,
+          "topc": 0.038550712168216705,
+          "topk_overlap": 0.9661484360694885,
+          "pred_agreement": 0.9445595741271973
+        },
+        "0.05": {
+          "tcpc": 0.18193425238132477,
+          "topc": 0.19286412000656128,
+          "topk_overlap": 0.8576164841651917,
+          "pred_agreement": 0.7626942992210388
+        },
+        "0.1": {
+          "tcpc": 0.3645876348018646,
+          "topc": 0.3865038752555847,
+          "topk_overlap": 0.7389118671417236,
+          "pred_agreement": 0.587737500667572
+        }
+      },
+      "locality": {
+        "all": {
+          "n_concepts": 133,
+          "relevant_drop": 0.040273308753967285,
+          "relevant_abs": 0.23278340697288513,
+          "irrelevant_abs": 0.20517286658287048,
+          "locality": 0.02761054039001465,
+          "ratio": 1.134572084749143
+        },
+        "active": {
+          "n_concepts": 133,
+          "relevant_drop": 0.09826843440532684,
+          "relevant_abs": 0.2752494812011719,
+          "irrelevant_abs": 0.2227962464094162,
+          "locality": 0.052453234791755676,
+          "ratio": 1.2354314116018195
+        }
+      },
+      "attribute_auroc": {
+        "overall": 0.690423435563362,
+        "n_concepts": 110,
+        "within_species": 0.5449664962094276,
+        "n_pairs": 8999
+      },
+      "evidence": {
+        "evidence_corr_train_clip": 0.3684418797492981,
+        "evidence_corr_train_clip_occlude": 0.3282090723514557,
+        "evidence_corr_train_clip_crop": 0.15168529748916626,
+        "evidence_corr_train_clip_cutmix": 0.5511893630027771,
+        "evidence_corr_oracle_clip": 0.2776032090187073,
+        "evidence_corr_oracle_clip_occlude": 0.250536173582077,
+        "evidence_corr_oracle_clip_crop": 0.0983734130859375,
+        "evidence_corr_oracle_clip_cutmix": 0.4099399447441101,
+        "nuisance_tcpc": 0.17134320735931396
+      }
+    },
+    "fvlc": {
+      "acc": 0.7338514924049377,
+      "decision": {
+        "nonzero_frac": 0.5102590918540955,
+        "positive_frac": 0.5014680624008179,
+        "act_vs_contrib": 0.352573424577713
+      },
+      "worst_case": {
+        "0.01": {
+          "tcpc": 0.02046157419681549,
+          "topc": 0.022952746599912643,
+          "topk_overlap": 0.9741451144218445,
+          "pred_agreement": 0.9404144883155823
+        },
+        "0.05": {
+          "tcpc": 0.1021876335144043,
+          "topc": 0.11467256397008896,
+          "topk_overlap": 0.8887564539909363,
+          "pred_agreement": 0.7409326434135437
+        },
+        "0.1": {
+          "tcpc": 0.20393125712871552,
+          "topc": 0.22898223996162415,
+          "topk_overlap": 0.7969256639480591,
+          "pred_agreement": 0.549568235874176
+        }
+      },
+      "paired_ip": {
+        "tcpc": 0.007014196366071701,
+        "topc": 0.004098548088222742,
+        "acc": 0.734024167060852
+      },
+      "locality": {
+        "all": {
+          "n_concepts": 133,
+          "relevant_drop": 0.03803667053580284,
+          "relevant_abs": 0.29427745938301086,
+          "irrelevant_abs": 0.26199406385421753,
+          "locality": 0.032283395528793335,
+          "ratio": 1.1232218587469864
+        },
+        "active": {
+          "n_concepts": 133,
+          "relevant_drop": 0.11860574781894684,
+          "relevant_abs": 0.3182438313961029,
+          "irrelevant_abs": 0.26600849628448486,
+          "locality": 0.05223533511161804,
+          "ratio": 1.1963671681214068
+        }
+      },
+      "attribute_auroc": {
+        "overall": 0.6454503329108313,
+        "n_concepts": 110,
+        "within_species": 0.5290140014412954,
+        "n_pairs": 8999
+      },
+      "evidence": {
+        "evidence_corr_train_clip": 0.24485012888908386,
+        "evidence_corr_train_clip_occlude": 0.20348142087459564,
+        "evidence_corr_train_clip_crop": 0.08169538527727127,
+        "evidence_corr_train_clip_cutmix": 0.37628838419914246,
+        "evidence_corr_oracle_clip": 0.18802717328071594,
+        "evidence_corr_oracle_clip_occlude": 0.15924283862113953,
+        "evidence_corr_oracle_clip_crop": 0.04905412346124649,
+        "evidence_corr_oracle_clip_cutmix": 0.28514471650123596,
+        "nuisance_tcpc": 0.16505050659179688
+      }
+    },
+    "ecfvlc_l0.03": {
+      "acc": 0.7438687682151794,
+      "decision": {
+        "nonzero_frac": 0.5619862079620361,
+        "positive_frac": 0.5581174492835999,
+        "act_vs_contrib": 0.4143178164958954
+      },
+      "worst_case": {
+        "0.01": {
+          "tcpc": 0.027351761236786842,
+          "topc": 0.02769710123538971,
+          "topk_overlap": 0.9677892923355103,
+          "pred_agreement": 0.9417961835861206
+        },
+        "0.05": {
+          "tcpc": 0.13673876225948334,
+          "topc": 0.13848839700222015,
+          "topk_overlap": 0.8706908226013184,
+          "pred_agreement": 0.7500863671302795
+        },
+        "0.1": {
+          "tcpc": 0.2731695771217346,
+          "topc": 0.2764256000518799,
+          "topk_overlap": 0.7615716457366943,
+          "pred_agreement": 0.5573402643203735
+        }
+      },
+      "paired_ip": {
+        "tcpc": 0.004459660965949297,
+        "topc": 0.002630227245390415,
+        "acc": 0.7438687682151794
+      },
+      "locality": {
+        "all": {
+          "n_concepts": 133,
+          "relevant_drop": -0.008978546597063541,
+          "relevant_abs": 0.16557705402374268,
+          "irrelevant_abs": 0.1455288976430893,
+          "locality": 0.02004815638065338,
+          "ratio": 1.1377606558239837
+        },
+        "active": {
+          "n_concepts": 132,
+          "relevant_drop": 0.053605400025844574,
+          "relevant_abs": 0.2140524536371231,
+          "irrelevant_abs": 0.17484338581562042,
+          "locality": 0.039209067821502686,
+          "ratio": 1.2242525082581635
+        }
+      },
+      "attribute_auroc": {
+        "overall": 0.6772242368961762,
+        "n_concepts": 110,
+        "within_species": 0.5375813897988334,
+        "n_pairs": 8999
+      },
+      "evidence": {
+        "evidence_corr_train_clip": 0.40397197008132935,
+        "evidence_corr_train_clip_occlude": 0.3231343626976013,
+        "evidence_corr_train_clip_crop": 0.1329386681318283,
+        "evidence_corr_train_clip_cutmix": 0.510162889957428,
+        "evidence_corr_oracle_clip": 0.2940678000450134,
+        "evidence_corr_oracle_clip_occlude": 0.23369520902633667,
+        "evidence_corr_oracle_clip_crop": 0.10060645639896393,
+        "evidence_corr_oracle_clip_cutmix": 0.37816524505615234,
+        "nuisance_tcpc": 0.14060282707214355
+      }
+    },
+    "ecfvlc_l0.1": {
+      "acc": 0.7336787581443787,
+      "decision": {
+        "nonzero_frac": 0.562642514705658,
+        "positive_frac": 0.5577892661094666,
+        "act_vs_contrib": 0.4295509159564972
+      },
+      "worst_case": {
+        "0.01": {
+          "tcpc": 0.02717495709657669,
+          "topc": 0.027086980640888214,
+          "topk_overlap": 0.9672020673751831,
+          "pred_agreement": 0.9376510977745056
+        },
+        "0.05": {
+          "tcpc": 0.1358647644519806,
+          "topc": 0.1353667974472046,
+          "topk_overlap": 0.8610707521438599,
+          "pred_agreement": 0.7328152060508728
+        },
+        "0.1": {
+          "tcpc": 0.27157002687454224,
+          "topc": 0.27015236020088196,
+          "topk_overlap": 0.7467875480651855,
+          "pred_agreement": 0.5300518274307251
+        }
+      },
+      "paired_ip": {
+        "tcpc": 0.0020525900181382895,
+        "topc": 0.001313212444074452,
+        "acc": 0.7336787581443787
+      },
+      "locality": {
+        "all": {
+          "n_concepts": 133,
+          "relevant_drop": -0.011184289120137691,
+          "relevant_abs": 0.14058837294578552,
+          "irrelevant_abs": 0.12304452061653137,
+          "locality": 0.01754385232925415,
+          "ratio": 1.1425813375626015
+        },
+        "active": {
+          "n_concepts": 128,
+          "relevant_drop": 0.05275704711675644,
+          "relevant_abs": 0.1917726993560791,
+          "irrelevant_abs": 0.15482327342033386,
+          "locality": 0.03694942593574524,
+          "ratio": 1.2386555013304121
+        }
+      },
+      "attribute_auroc": {
+        "overall": 0.6845795973956929,
+        "n_concepts": 110,
+        "within_species": 0.538900371492047,
+        "n_pairs": 8999
+      },
+      "evidence": {
+        "evidence_corr_train_clip": 0.4436861276626587,
+        "evidence_corr_train_clip_occlude": 0.35534465312957764,
+        "evidence_corr_train_clip_crop": 0.15361939370632172,
+        "evidence_corr_train_clip_cutmix": 0.5410832166671753,
+        "evidence_corr_oracle_clip": 0.318672776222229,
+        "evidence_corr_oracle_clip_occlude": 0.25275176763534546,
+        "evidence_corr_oracle_clip_crop": 0.11792981624603271,
+        "evidence_corr_oracle_clip_cutmix": 0.39742007851600647,
+        "nuisance_tcpc": 0.11876276880502701
+      }
+    },
+    "ecfvlc_l0.3": {
+      "acc": 0.7189982533454895,
+      "decision": {
+        "nonzero_frac": 0.5212435126304626,
+        "positive_frac": 0.5137133002281189,
+        "act_vs_contrib": 0.41120895743370056
+      },
+      "worst_case": {
+        "0.01": {
+          "tcpc": 0.028346020728349686,
+          "topc": 0.02869412861764431,
+          "topk_overlap": 0.9634541869163513,
+          "pred_agreement": 0.927806556224823
+        },
+        "0.05": {
+          "tcpc": 0.14165249466896057,
+          "topc": 0.14325353503227234,
+          "topk_overlap": 0.8463902473449707,
+          "pred_agreement": 0.6835923790931702
+        },
+        "0.1": {
+          "tcpc": 0.28288188576698303,
+          "topc": 0.2851085960865021,
+          "topk_overlap": 0.723661482334137,
+          "pred_agreement": 0.46079447865486145
+        }
+      },
+      "paired_ip": {
+        "tcpc": 0.0008328338735736907,
+        "topc": 0.0006545439246110618,
+        "acc": 0.7189982533454895
+      },
+      "locality": {
+        "all": {
+          "n_concepts": 133,
+          "relevant_drop": -0.010430663824081421,
+          "relevant_abs": 0.12656044960021973,
+          "irrelevant_abs": 0.110916368663311,
+          "locality": 0.015644080936908722,
+          "ratio": 1.1410439336000682
+        },
+        "active": {
+          "n_concepts": 121,
+          "relevant_drop": 0.05118963122367859,
+          "relevant_abs": 0.17585445940494537,
+          "irrelevant_abs": 0.14138637483119965,
+          "locality": 0.03446808457374573,
+          "ratio": 1.2437864653853454
+        }
+      },
+      "attribute_auroc": {
+        "overall": 0.689299867629672,
+        "n_concepts": 110,
+        "within_species": 0.5389770505819287,
+        "n_pairs": 8999
+      },
+      "evidence": {
+        "evidence_corr_train_clip": 0.465192586183548,
+        "evidence_corr_train_clip_occlude": 0.3717336654663086,
+        "evidence_corr_train_clip_crop": 0.16648925840854645,
+        "evidence_corr_train_clip_cutmix": 0.5557608604431152,
+        "evidence_corr_oracle_clip": 0.33163169026374817,
+        "evidence_corr_oracle_clip_occlude": 0.26268264651298523,
+        "evidence_corr_oracle_clip_crop": 0.1284767985343933,
+        "evidence_corr_oracle_clip_cutmix": 0.4059004783630371,
+        "nuisance_tcpc": 0.10837695747613907
+      }
+    }
+  },
+  "time_s": 3801.148213863373
+}
