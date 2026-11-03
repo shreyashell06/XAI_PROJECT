@@ -34,7 +34,6 @@ Welcome to our project repository for **DA351: Explainable AI**. This project in
 ## 2. Summary of Phase 1 (Replication)
 
 * **Objective:** Verify the published claims of FVLC (Lai et al., ICLR 2024) that adding regularization losses ($L_1$ to $L_4$) stabilizes concept representations against 7 input and word perturbation settings.
-* **Key Challenge:** The authors' public repository was incomplete and unrunnable. We built an independent reimplementation from scratch directly from the paper's algorithms.
 * **Findings:**
   - **Accuracy Preserved (Table 1):** FVLC maintained standard classification accuracy across CIFAR-10 (~86.5%), CIFAR-100 (~65%), and CUB-200 (~73%).
   - **Stability Verified (Table 2):** TCPC (Top-Concept Pair Consistency) and TOPC improved by ~85–90% compared to unregularized Label-Free CBMs.
@@ -176,10 +175,4 @@ python run_phase2.py --dataset cub --lambda5 0.1
 
 ---
 
-## 8. Presentation & Evaluation Deliverables
 
-For course evaluators and presentation reviewers, our supporting materials are structured as follows:
-- **Presentation Slide Deck & Guide:** Available in `Phase2_Extension/presentation_slides_and_guide.md`.
-- **10-Minute Presentation Spoken Script:** Available in `Phase2_Extension/presentation_script_10min.md`.
-- **Experimental Comparison Report (PDF Source):** Available in `Phase2_Extension/experimental_results_comparison.md`.
-- **Concepts & Terms Glossary:** Available in `Phase2_Extension/tech_terms_glossary_guide.md`.
