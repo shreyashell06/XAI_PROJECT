@@ -5,8 +5,9 @@ Welcome to our project repository for **DA351: Explainable AI**. This project in
 1. **Phase 1 (Replication):** An independent from-scratch replication of the ICLR 2024 paper *"Faithful Vision-Language Interpretation via Concept Bottleneck Models"* (FVLC) by Lai et al.
 2. **Phase 2 (Extension — EC-FVLC):** Identifying a fundamental blind spot in stability-based faithfulness, proposing an Evidence-Consistent extension (**EC-FVLC**) with a new loss term ($L_5$), and experimentally validating our solution across three benchmarks.
 
----
-
+--- 
+**Focus:** Faithfulness in Vision-Language Models and Concept Bottleneck Models  
+**Approach:** Independent Replication + Evidence-Consistent Extension (EC-FVLC)
 ## 1. Project Overview & Two-Phase Roadmap
 
 ```
